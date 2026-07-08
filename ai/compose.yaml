@@ -1,5 +1,6 @@
 services:
   ollama:
+    container_name: ollama
     image: ollama/ollama
     restart: unless-stopped
     ports:
@@ -8,6 +9,7 @@ services:
       - /data/ollama:/root/.ollama
 
   open-webui:
+    container_name: open-webui
     image: ghcr.io/open-webui/open-webui:main
     restart: unless-stopped
     depends_on:

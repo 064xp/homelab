@@ -1,0 +1,16 @@
+- resources:
+    cpu: true
+    memory: true
+    disk:
+      - /
+      - /data
+
+- datetime:
+    text_size: xl
+    format:
+      dateStyle: full
+      timeStyle: short
+
+- search:
+    provider: google
+    target: _blank

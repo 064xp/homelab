@@ -1,0 +1,80 @@
+- AI:
+    - Open WebUI:
+        href: http://{{HOMEPAGE_VAR_HOST}}:3000
+        icon: open-webui.png
+        description: Chat UI
+        server: my-docker
+        container: open-webui
+
+    - Ollama:
+        href: http://{{HOMEPAGE_VAR_HOST}}:11434
+        icon: ollama.png
+        description: LLM backend
+        server: my-docker
+        container: ollama
+
+    - SearXNG:
+        href: http://{{HOMEPAGE_VAR_HOST}}:8081
+        icon: searxng.png
+        description: Private search
+        server: my-docker
+        container: searxng
+
+- Media:
+    - Jellyfin:
+        href: http://{{HOMEPAGE_VAR_HOST}}:8096
+        icon: jellyfin.png
+        server: my-docker
+        container: jellyfin
+
+    - qBittorrent:
+        href: http://{{HOMEPAGE_VAR_HOST}}:8080
+        icon: qbittorrent.png
+        server: my-docker
+        container: qbittorrent
+
+    - Sonarr:
+        href: http://{{HOMEPAGE_VAR_HOST}}:8989
+        icon: sonarr.png
+        server: my-docker
+        container: sonarr
+
+    - Radarr:
+        href: http://{{HOMEPAGE_VAR_HOST}}:7878
+        icon: radarr.png
+        server: my-docker
+        container: radarr
+
+    - Prowlarr:
+        href: http://{{HOMEPAGE_VAR_HOST}}:9696
+        icon: prowlarr.png
+        server: my-docker
+        container: prowlarr
+
+- Books:
+    - Calibre-Web:
+        href: http://{{HOMEPAGE_VAR_HOST}}:8083
+        icon: calibre-web.png
+        server: my-docker
+        container: calibre-web
+
+- Storage:
+    - OpenCloud:
+        href: http://{{HOMEPAGE_VAR_HOST}}:9200
+        icon: opencloud.png
+        server: my-docker
+        container: opencloud
+
+- Photos:
+    - Immich:
+        href: http://{{HOMEPAGE_VAR_HOST}}:2283
+        icon: immich.png
+        server: my-docker
+        container: immich
+
+- Infrastructure:
+    - Pi-hole:
+        href: http://{{HOMEPAGE_VAR_HOST}}/admin
+        icon: pi-hole.png
+        server: my-docker
+        container: pihole

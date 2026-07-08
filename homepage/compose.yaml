@@ -1,13 +1,21 @@
-homepage:
-  image: ghcr.io/gethomepage/homepage:latest
-  container_name: homepage
-  ports:
-    - "3000:3000"
-  volumes:
-    - ~/homelab/homepage:/app/config  # <-- Mount your config directory
-    - /var/run/docker.sock:/var/run/docker.sock:ro
-  environment:
-    - PUID=1000
-    - PGID=1000
-    - HOMEPAGE_ALLOWED_HOSTS=100.101.127.71:3000,localhost:3000
-  restart: unless-stopped
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+
+    ports:
+      - "3030:3000"
+
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /data/homepage:/app/data
+      - /data:/data:ro
+
+    env_file:
+      - .env
+
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: "*"
+
+    restart: unless-stopped
