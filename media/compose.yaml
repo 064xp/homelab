@@ -1,0 +1,106 @@
+version: '3.8'
+
+services:
+  # ============================================
+  # qBittorrent (VPN temporarily disabled)
+  # ============================================
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=${PUID}
+      - PUID=${PGID}
+      - TZ=${TZ}
+      - WEBUI_PORT=8080
+    volumes:
+      - /data/config/qbittorrent:/config
+      - /data/torrents:/data/torrents
+
+    ports:
+      - "8080:8080"
+      - "6881:6881"
+      - "6881:6881/udp"
+    restart: unless-stopped
+
+  # ============================================
+  # Prowlarr (Indexer Manager)
+  # ============================================
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=${PUID}
+      - PUID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /data/config/prowlarr:/config
+    ports:
+      - "9696:9696"
+    restart: unless-stopped
+
+  # ============================================
+  # Sonarr (TV Shows)
+  # ============================================
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=${PUID}
+      - PUID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /data/config/sonarr:/config
+      - /data/torrents:/data/torrents
+      - /data/media/tv:/data/media/tv
+    ports:
+      - "8989:8989"
+    restart: unless-stopped
+
+  # ============================================
+  # Radarr (Movies)
+  # ============================================
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=${PUID}
+      - PUID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /data/config/radarr:/config
+      - /data/torrents:/data/torrents
+      - /data/media/movies:/data/media/movies
+    ports:
+      - "7878:7878"
+    restart: unless-stopped
+
+  # ============================================
+  # Jellyfin (Media Server)
+  # ============================================
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=${PUID}
+      - PUID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /data/config/jellyfin:/config
+      - /data/media:/data/media
+    ports:
+      - "8096:8096"
+      - "8920:8920"
+    restart: unless-stopped
+
+  # ============================================
+  # Flaresolverr
+  # ============================================
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - LOG_LEVEL=info
+      - TZ=${TZ}
+    ports:
+      - "8191:8191"
+    restart: unless-stopped
