@@ -12,7 +12,7 @@ services:
       - WEBUI_PORT=8080
     volumes:
       - ../config/qbittorrent:/config
-      - /data/torrents:/data/torrents
+      - /data:/data
 
     ports:
       - "8080:8080"
@@ -48,8 +48,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ../config/sonarr:/config
-      - /data/torrents:/data/torrents
-      - /data/media/tv:/data/media/tv
+      - /data:/data
     ports:
       - "8989:8989"
     restart: unless-stopped
@@ -66,8 +65,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ../config/radarr:/config
-      - /data/torrents:/data/torrents
-      - /data/media/movies:/data/media/movies
+      - /data:/data
     ports:
       - "7878:7878"
     restart: unless-stopped
