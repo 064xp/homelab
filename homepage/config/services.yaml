@@ -58,6 +58,12 @@
         server: my-docker
         container: calibre-web
 
+    - Koreader Sync Server:
+        href: http://{{HOMEPAGE_VAR_HOST}}:7200
+        icon: koreader.png
+        server: my-docker
+        container: kosync
+
 - Storage:
     - OpenCloud:
         href: http://{{HOMEPAGE_VAR_HOST}}:9200
