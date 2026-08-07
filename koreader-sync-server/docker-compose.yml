@@ -2,6 +2,7 @@ services:
   kosync:
     image: koreader/kosync:latest
     container_name: kosync
+    restart: unless-stopped
     ports:
       - 7200:17200
     environment:
