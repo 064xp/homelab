@@ -14,7 +14,7 @@
         container: ollama
 
     - SearXNG:
-        href: http://{{HOMEPAGE_VAR_HOST}}:8081
+        href: http://{{HOMEPAGE_VAR_HOST}}:8888
         icon: searxng.png
         description: Private search
         server: my-docker
