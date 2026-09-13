@@ -71,6 +71,17 @@
         server: my-docker
         container: opencloud
 
+    - Syncthing:
+        href: http://{{HOMEPAGE_VAR_HOST}}:8384
+        icon: syncthing.png
+        description: File sync
+        server: my-docker
+        container: syncthing
+        widget:
+          type: syncthing
+          url: http://{{HOMEPAGE_VAR_HOST}}:8384
+          key: {{HOMEPAGE_VAR_SYNCTHING_KEY}}
+
 - Photos:
     - Immich:
         href: http://{{HOMEPAGE_VAR_HOST}}:2283
